@@ -1,35 +1,29 @@
+<?php
+session_start();
+
+    include("connection.php");
+    include("function.php");
+
+    $user_data = check_login($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bio</title>
-    <link rel="stylesheet" href="global_css.css">
+    <link rel="stylesheet" href="CSS/global_css.css">
+    <link rel="stylesheet" href="CSS/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="script.js"></script>
   </head>
   <body id="contact-body">
-    <nav id="topbar">
-      <div>
-        <img src="" alt="">
-      </div>
-      <div>
-        <p>USERNAME HERE</p>
-        <button id="darkmode">Change</button>
-      </div>
-  </nav>
-  <nav id="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="">OPT 2</a></li>
-      <li><a href="">OPT 3</a></li>
-      <li><a href="">OPT 4</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
-    
+    <?php
+      include("header.php");
+    ?>
     <section class="form-section first-section center">
-      <form id="form" class="form" action="mail.php" method="post">
+      <form id="form" class="form" action="" method="post">
         <h3>Contact Form</h3>
           <input id="username" type="text" name="username" placeholder="Name"/>
           <span id="username_error" class="form-error-message"></span>
@@ -49,13 +43,8 @@
           </div>
       </form>
     </section>
-    <footer class="footer">
-      <p>Preney Piracy</p>
-      <div class="footer-links">
-          <a href="facebook.com" class="fa fa-facebook"></a>
-          <a href="twitter.com" class="fa fa-twitter"></a>
-          <a href="linkedin.com" class="fa fa-linkedin"></a>
-      </div>
-  </footer>
+    <?php
+        include("footer.php");
+    ?>
   </body>
 </html>

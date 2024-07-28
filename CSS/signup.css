@@ -14,22 +14,22 @@ body {
     background-color: rgba(var(--color-2), .5);
 }
 
-.login-container {
+.signup-container {
     max-width: 950px;
-    height: 450px;
+    height: 500px;
     display: flex;
     background-color: white;
     box-shadow: 3px 3px 100px 0px rgb(136, 136, 136);
 }
 
-#login-left-section {
+#signup-left-section {
     padding: 3rem 1rem 3rem 1rem;
     width: 50%;
     color:rgb(91, 91, 91);
 
 }
 
-#login-left-section p{
+#signup-left-section p{
     font-size: 2rem;
     padding-left: 2rem;
 }
@@ -39,7 +39,7 @@ label {
 }
 
 
-#login-right-section {
+#signup-right-section {
     width: 50%;
     padding: 1rem;
     display: flex;
@@ -52,9 +52,9 @@ label {
     background: linear-gradient(-45deg, rgba(var(--color-5),1) 0%, rgba(var(--color-4),1) 100%);
 }
 
-.login-form {
+.signup-form {
     padding: 1rem 2rem 0rem 2rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 
 input {
@@ -72,20 +72,20 @@ button{
     font-size: 1.1rem;
 }
 
-#login-right-section button {
+#signup-right-section button {
     background-color: transparent;
     border: 2px solid white;
     width: 10rem;
 }
 
-#login-left-section button {
+#signup-left-section button {
     border: none;
     width: 100%;
     background: rgb(2,0,36);
     background: linear-gradient(-45deg, rgba(var(--color-5),1) 0%, rgba(var(--color-4),1) 100%);
 }
 
-#login-right-section button:hover {
+#signup-right-section button:hover {
     background-color: white;
     color: black;
     box-shadow: none;
