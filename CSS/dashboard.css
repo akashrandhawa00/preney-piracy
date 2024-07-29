@@ -1,0 +1,57 @@
+.page-wrapper{
+
+}
+
+.main-body{
+    width: 100%;
+    padding: 4rem;
+}
+
+.page-sections{
+    margin: 1.5rem 0 1.5rem 0;
+    border: 1px solid rgba(128, 128, 128, 0.529);
+    border-radius: 10px;
+}
+
+.course-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 250px;
+    height: 300px;
+    border: 1px solid rgba(128, 128, 128, 0.529);
+    transition: transform .3s ease;
+}
+
+.course-cards:hover{
+    transform: scale(105%);
+}
+
+.course-cards h4 {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+}
+
+.course-cards p {
+    margin-left: 1rem;
+    font-weight: 500;
+}
+
+.course-logo {
+    width: auto;
+    height: 70%;
+}
+
+.course-cards-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+h3{
+    padding: 1rem;
+    font-weight: 600;
+}
+
+
+
