@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title>Preney Piracy - Forums</title> -->
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Forum</h1>
+    </div>
+    <div class="main">
+        <form id="new-thread-form">
+            <input type="text" id="new-thread-title" placeholder="Thread title" required>
+            <textarea id="new-thread-content" placeholder="Thread content" required></textarea>
+            <button type="submit">Add Thread</button>
+        </form>
+        <ol></ol>
+    </div>
+    <script src="data.js"></script>
+    <script>
+        console.log(threads);
+        var container = document.querySelector('ol');
+        for (let thread of threads) {
+            var html = `
+            <li class="row">
+                <a href="/Users/13135/Downloads/thread.html?${thread.id}">
+                    <h4 class="title">${thread.title}</h4>
+                    <div class="bottom">
+                        <p class="timestamp">${new Date(thread.date).toLocaleString()}</p>
+                        <p class="comment-count">${thread.comments.length} comments</p>
+                    </div>
+                </a>
+            </li>
+            `;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        document.getElementById('new-thread-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            var title = document.getElementById('new-thread-title').value;
+            var content = document.getElementById('new-thread-content').value;
+            
+            var newThread = {
+                id: threads.length + 1,
+                title: title,
+                author: 'Omar', // Replace with the actual user
+                date: Date.now(),
+                content: content,
+                comments: []
+            };
+            
+            threads.push(newThread);
+            localStorage.setItem('threads', JSON.stringify(threads));
+            
+            var html = `
+                <li class="row">
+                    <a href="/thread.html?${newThread.id}">
+                        <h4 class="title">${newThread.title}</h4>
+                        <div class="bottom">
+                            <p class="timestamp">${new Date(newThread.date).toLocaleString()}</p>
+                            <p class="comment-count">0 comments</p>
+                        </div>
+                    </a>
+                </li>
+            `;
+            
+            container.insertAdjacentHTML('beforeend', html);
+            
+            document.getElementById('new-thread-title').value = '';
+            document.getElementById('new-thread-content').value = '';
+        });
+    </script>
+    <style>
+        body {
+            margin: 10px 60px;
+            background-color: #FCD7AD;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        h1, h4, ol {
+            margin: 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .top-bar {
+            background-color: #5296a5;
+            padding: 0 40px;
+        }
+        .main {
+            background-color: #82ddf0;
+            padding: 10px 15px;
+        }
+        .row {
+            padding: 5px 0;
+        }
+        .bottom {
+            display: flex;
+            color: gray;
+            font-size: 12px;
+        }
+        .timestamp {
+            padding-right: 10px;
+        }
+        #new-thread-form {
+            margin-bottom: 20px;
+        }
+        #new-thread-form input, #new-thread-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #new-thread-form button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</body>
+</html>
