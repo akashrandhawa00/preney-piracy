@@ -10,6 +10,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:3000/login', { email, password });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('username', response.data.username);
       alert('Login successful');
     } catch (error) {
       alert('Invalid email or password');
