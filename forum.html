@@ -24,7 +24,7 @@
         for (let thread of threads) {
             var html = `
             <li class="row">
-                <a href="/Users/13135/Downloads/thread.html?${thread.id}">
+                <a href="/thread.html?${thread.id}">
                     <h4 class="title">${thread.title}</h4>
                     <div class="bottom">
                         <p class="timestamp">${new Date(thread.date).toLocaleString()}</p>
@@ -41,11 +41,12 @@
             
             var title = document.getElementById('new-thread-title').value;
             var content = document.getElementById('new-thread-content').value;
+            var username = localStorage.getItem('username'); // Get the logged-in user's username
             
             var newThread = {
                 id: threads.length + 1,
                 title: title,
-                author: 'Omar', // Replace with the actual user
+                author: username,
                 date: Date.now(),
                 content: content,
                 comments: []
@@ -77,45 +78,82 @@
             margin: 10px 60px;
             background-color: #FCD7AD;
         }
+
         a {
             text-decoration: none;
             color: black;
         }
+
         h1, h4, ol {
             margin: 0;
         }
+
         p {
             margin: 5px 0;
         }
+
         .top-bar {
             background-color: #5296a5;
             padding: 0 40px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px 0px rgb(136, 136, 136);
         }
+
         .main {
             background-color: #82ddf0;
-            padding: 10px 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px 0px rgb(136, 136, 136);
         }
+
+        #new-thread-form {
+            margin-bottom: 20px;
+        }
+
+        #new-thread-form input, #new-thread-form textarea {
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 0px rgb(136, 136, 136);
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        #new-thread-form button {
+            display: block;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 0px rgb(136, 136, 136);
+            border: none;
+            background-color: #5296a5;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #new-thread-form button:hover {
+            background-color: #407d93;
+        }
+
+        ol {
+            padding: 0;
+            list-style-type: none; /* Removes default list styling */
+        }
+
         .row {
             padding: 5px 0;
+            /* No box-shadow or border-radius for .row to avoid visible boxes */
         }
+
         .bottom {
             display: flex;
             color: gray;
             font-size: 12px;
         }
+
         .timestamp {
             padding-right: 10px;
-        }
-        #new-thread-form {
-            margin-bottom: 20px;
-        }
-        #new-thread-form input, #new-thread-form textarea {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        #new-thread-form button {
-            display: block;
-            margin: 10px 0;
         }
     </style>
 </body>

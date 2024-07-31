@@ -96,10 +96,11 @@
             var btn = document.querySelector('button');
             btn.addEventListener('click', function(){
                 var txt = document.querySelector('textarea');
+                var username = localStorage.getItem('username');
                 var comment = {
                     content: txt.value,
                     date: Date.now(),
-                    author: 'Omar'
+                    author: username
                 }
                 addComment(comment);
                 txt.value = '';
@@ -109,57 +110,100 @@
 
         </script>
         <style>
-            body{
-                margin: 10px 60px;
-                background-color: #FCD7AD;
-            }
-            a {
-                text-decoration: none;
-                color: black;
-            }
-            h1, h4, ol {
-                margin: 0;
-            }
-            p {
-                margin: 5px 0;
-            }
-            textarea {
-                width: 80%;
-                height: 80px;
-            }
-            button {
-                display: block;
-                margin: 10px 0;
-            }
-            .top-bar {
-                background-color: #5296a5;
-                padding: 10px 40px;
-            }
-            .main {
-                background-color: #82ddf0;
-                padding: 10px 15px;
-            }
-            .comments {
-                margin: 40px 0;
-            }
-            .comment {
-                margin: 10px 0;
-            }
-            .row {
-                padding: 5px 0;
-            }
-            .bottom, .top-comment {
-                display: flex;
-                color: gray;
-                font-size: 12px;
-                
-            }
-            .author {
-                color: black;
-            }
-            .timestamp {
-                padding-right: 10px;
-            }
+            body {
+            margin: 10px 60px;
+            background-color: #FCD7AD;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        h1, h4 {
+            margin: 0;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        textarea {
+            width: calc(100% - 32px);
+            height: 80px;
+            margin: 0 auto 10px auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 0px rgb(136, 136, 136);
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: block;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            width: calc(100% - 32px);
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 0px rgb(136, 136, 136);
+            border: none;
+            background-color: #5296a5;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #407d93;
+        }
+
+        .top-bar {
+            background-color: #5296a5;
+            padding: 0 40px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px 0px rgb(136, 136, 136);
+        }
+
+        .main {
+            background-color: #82ddf0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px 0px rgb(136, 136, 136);
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .comments {
+            margin: 20px 0;
+        }
+
+        .comment {
+            margin: 10px 0;
+            padding: 5px 0;
+
+        }
+
+        .comment .top-comment {
+            display: flex;
+            justify-content: space-between;
+            color: gray;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .comment .top-comment .user {
+            color: black;
+        }
+
+        .comment .comment-content {
+            padding-top: 5px;
+        }
+
+        button {
+            width: 99%;
+        }
         </style>
     </body>
 </html>
